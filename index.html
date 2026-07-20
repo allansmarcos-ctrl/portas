@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#120b05">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<title>As Portas de Jerusalém · caça ao tesouro pela Cidade Velha</title>
+<meta name="description" content="Uma caça ao tesouro imersiva pela Cidade Velha de Jerusalém. Três seitas, um segredo dos últimos anos do Segundo Templo. Grátis, em português, no seu celular.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="As Portas de Jerusalém">
+<meta property="og:description" content="Três seitas. Uma cidade. Um segredo que derrubou tudo. Venha descobrir os últimos segredos do Segundo Templo. Grátis, em português.">
+<meta property="og:url" content="https://allansmarcos-ctrl.github.io/portas/">
+<meta property="og:image" content="https://allansmarcos-ctrl.github.io/portas/assets/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@font-face{font-family:'Cinzel';font-style:normal;font-weight:700;font-display:swap;src:url('assets/cinzel-700.woff2') format('woff2');}
+
+:root{
+  --perg:#efdcb4; --perg-claro:#f6ecd2; --tinta:#3f2d1c; --sepia:#6b4a2a;
+  --sepia-claro:#9a744a; --dourado:#b8860b; --dourado-claro:#e0b03a;
+  --sangue:#7a1f1f; --noite:#120b05; --noite-2:#1e140a; --pedra:#241a0f;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--noite);color:var(--perg);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+
+.cinzel{font-family:'Cinzel',Georgia,serif;font-weight:700;letter-spacing:.08em;}
+.ouro{color:var(--dourado-claro);}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 22px calc(40px + env(safe-area-inset-bottom));overflow:hidden;}
+.hero__bg{position:absolute;inset:0;background:url('assets/hero.jpg') center/cover no-repeat;transform:scale(1.06);animation:kenburns 26s ease-in-out infinite alternate;}
+.hero__veu{position:absolute;inset:0;background:
+   radial-gradient(120% 90% at 50% 20%, rgba(18,11,5,.25), rgba(18,11,5,.72) 62%, rgba(18,11,5,.94) 100%),
+   linear-gradient(180deg, rgba(18,11,5,.55) 0%, rgba(18,11,5,.2) 30%, rgba(18,11,5,.85) 100%);}
+.hero__conteudo{position:relative;max-width:640px;}
+.eyebrow{font-family:'Cinzel',Georgia,serif;font-size:12.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--dourado-claro);opacity:.9;margin-bottom:20px;}
+.hero h1{font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:clamp(38px,11vw,84px);line-height:1.04;letter-spacing:.04em;text-transform:uppercase;
+  color:#f6e7c0;text-shadow:0 2px 30px rgba(0,0,0,.6),0 0 46px rgba(184,134,11,.28);}
+.hero__linha{width:64px;height:2px;margin:22px auto;background:linear-gradient(90deg,transparent,var(--dourado),transparent);}
+.hero p.sub{font-size:clamp(17px,4.6vw,22px);line-height:1.6;color:#eaddbf;max-width:30ch;margin:0 auto;text-wrap:balance;}
+.selos{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:26px 0 30px;}
+.selo{font-family:'Cinzel',Georgia,serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;padding:7px 13px;border:1px solid rgba(224,176,58,.5);border-radius:40px;color:#f0dca6;background:rgba(30,20,10,.4);backdrop-filter:blur(2px);}
+.cta{display:inline-block;cursor:pointer;font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:#241804;
+  padding:16px 34px;border:none;border-radius:12px 16px 13px 17px/16px 12px 18px 13px;
+  background:linear-gradient(180deg,#f0cf6d,#b8860b);box-shadow:0 6px 22px rgba(184,134,11,.4),0 2px 0 #7a5a0c;
+  -webkit-tap-highlight-color:transparent;transition:transform .12s,box-shadow .2s;}
+.cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(184,134,11,.55),0 2px 0 #7a5a0c;}
+.cta:active{transform:translateY(1px);}
+.hero .desca{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#e0b03a;font-size:22px;opacity:.75;animation:flutua 2.2s ease-in-out infinite;}
+
+@keyframes kenburns{from{transform:scale(1.06) translateY(0)}to{transform:scale(1.14) translateY(-2%)}}
+@keyframes flutua{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+/* ---------- SECOES ---------- */
+.secao{padding:76px 22px;position:relative;}
+.wrap{max-width:720px;margin:0 auto;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.vis{opacity:1;transform:none;}
+.kicker{font-family:'Cinzel',Georgia,serif;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--dourado);text-align:center;margin-bottom:14px;}
+h2.tit{font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:clamp(26px,7vw,40px);line-height:1.15;letter-spacing:.05em;text-transform:uppercase;text-align:center;color:#f2e3bf;margin-bottom:26px;}
+
+.narra{background:var(--noite-2);}
+.narra p{font-size:clamp(18px,4.8vw,23px);line-height:1.7;color:#e7d9ba;text-align:center;margin:0 auto 14px;max-width:26ch;text-wrap:balance;}
+.narra p:last-child{color:#f0dca6;font-style:italic;}
+
+/* seitas */
+.seitas{background:linear-gradient(180deg,var(--noite),#170f07);}
+.cards{display:grid;gap:16px;}
+.card{position:relative;padding:24px 22px;border:1px solid var(--sepia);border-left:4px solid var(--cor,var(--dourado));border-radius:6px;
+  background:linear-gradient(160deg,rgba(246,236,210,.96),rgba(226,205,155,.92));color:var(--tinta);box-shadow:0 10px 30px rgba(0,0,0,.4);}
+.card h3{font-family:'Cinzel',Georgia,serif;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:#4a3418;margin-bottom:4px;}
+.card .papel{font-family:'Cinzel',Georgia,serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cor,var(--sepia));margin-bottom:12px;}
+.card p{font-size:16.5px;line-height:1.6;}
+.card .sel{position:absolute;top:18px;right:20px;width:12px;height:12px;border-radius:50%;background:var(--cor,var(--dourado));box-shadow:0 0 10px 1px var(--cor,var(--dourado));}
+
+/* o que e */
+.oque{background:var(--noite-2);}
+.linhas{list-style:none;max-width:560px;margin:0 auto;}
+.linhas li{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-bottom:1px solid rgba(154,116,74,.28);font-size:17px;line-height:1.55;color:#e7d9ba;}
+.linhas li:last-child{border-bottom:none;}
+.linhas .g{color:var(--dourado-claro);flex:none;font-size:19px;line-height:1.4;}
+
+/* mapa vitrine */
+.vitrine{background:linear-gradient(180deg,#170f07,var(--noite));text-align:center;}
+.moldura{max-width:560px;margin:0 auto;padding:12px;border:2px solid var(--dourado);border-radius:8px;background:#241a0f;box-shadow:0 16px 50px rgba(0,0,0,.55);}
+.moldura img{border-radius:4px;}
+.vitrine figcaption{margin-top:16px;font-style:italic;color:#d8c7a0;font-size:15px;}
+
+/* form */
+.inscr{background:linear-gradient(180deg,var(--noite),#0d0704);}
+.painel{max-width:480px;margin:0 auto;padding:30px 24px 26px;border:1px solid var(--sepia);border-radius:10px;
+  background:linear-gradient(165deg,#f6ecd2,#e6cf9d);color:var(--tinta);box-shadow:0 18px 60px rgba(0,0,0,.6);}
+.painel .rot{display:block;font-family:'Cinzel',Georgia,serif;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#56391b;margin:16px 0 7px;}
+.painel input{width:100%;padding:14px 15px;font-family:Georgia,serif;font-size:17px;color:var(--tinta);background:rgba(255,251,240,.8);border:2px solid var(--sepia);border-radius:7px;outline:none;}
+.painel input:focus{border-color:var(--dourado);}
+.painel .cta{width:100%;margin-top:22px;font-size:16px;}
+.ajuda{font-size:13.5px;line-height:1.5;color:#6b4a2a;margin-top:14px;text-align:center;}
+.priv{font-size:12px;line-height:1.5;color:#7a5a34;margin-top:16px;text-align:center;opacity:.85;}
+.erro{min-height:20px;margin-top:12px;text-align:center;color:var(--sangue);font-style:italic;font-size:14.5px;}
+.sucesso{display:none;text-align:center;color:var(--tinta);}
+.sucesso.on{display:block;animation:surge .6s ease;}
+.painel.enviado .form-real{display:none;}
+.sucesso h3{font-family:'Cinzel',Georgia,serif;font-size:24px;letter-spacing:.05em;text-transform:uppercase;color:#4a3418;margin-bottom:12px;}
+.sucesso p{font-size:16.5px;line-height:1.65;margin-bottom:18px;}
+.share{display:inline-block;text-decoration:none;font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#f6ecd2;background:#1f6f4a;padding:13px 22px;border-radius:10px;box-shadow:0 5px 16px rgba(20,80,50,.4);}
+@keyframes surge{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+
+footer{padding:40px 22px calc(46px + env(safe-area-inset-bottom));text-align:center;background:#0d0704;color:#8a744f;font-size:13px;letter-spacing:.04em;}
+footer .cinzel{color:#b89a5f;font-size:14px;letter-spacing:.18em;}
+
+@media (prefers-reduced-motion:reduce){
+  .hero__bg{animation:none;transform:scale(1.06);}
+  .desca{animation:none;}
+  .reveal{transition:none;opacity:1;transform:none;}
+}
+@media(min-width:680px){ .cards{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__veu" aria-hidden="true"></div>
+  <div class="hero__conteudo">
+    <p class="eyebrow">Jerusalém · os últimos anos do Segundo Templo</p>
+    <h1>As Portas de<br>Jerusalém</h1>
+    <div class="hero__linha"></div>
+    <p class="sub">Uma caça ao tesouro pela Cidade Velha. Três seitas. Um segredo que derrubou tudo.</p>
+    <div class="selos">
+      <span class="selo">Grátis</span>
+      <span class="selo">Em português</span>
+      <span class="selo">No seu celular</span>
+    </div>
+    <button class="cta" onclick="document.getElementById('inscricao').scrollIntoView()">Quero entrar</button>
+  </div>
+  <div class="desca" aria-hidden="true">&#9660;</div>
+</header>
+
+<!-- ===== NARRATIVA ===== -->
+<section class="secao narra">
+  <div class="wrap reveal">
+    <p>Roma esperava nas colinas. O Templo ainda respirava.</p>
+    <p>Por dentro, o povo se rasgava em três. Cada seita guardava um pedaço da verdade.</p>
+    <p>Nenhuma quis ceder o seu. Foi só isso que faltou.</p>
+  </div>
+</section>
+
+<!-- ===== SEITAS ===== -->
+<section class="secao seitas">
+  <div class="wrap">
+    <p class="kicker reveal">Escolham um lado</p>
+    <h2 class="tit reveal">Três seitas, três verdades</h2>
+    <div class="cards">
+      <article class="card reveal" style="--cor:#b8860b">
+        <span class="sel"></span>
+        <div class="papel">Fariseus</div>
+        <h3>Os que esperam</h3>
+        <p>Toda Jerusalém fala de um mestre de Natzrat. Uns o seguem, outros o temem. Vocês precisam entender quem ele é, antes que a cidade escolha por vocês.</p>
+      </article>
+      <article class="card reveal" style="--cor:#6d2857">
+        <span class="sel"></span>
+        <div class="papel">Saduceus</div>
+        <h3>Os que guardam o altar</h3>
+        <p>O Templo é de vocês. Mas alguém comprou o Sumo Sacerdote, e o ouro entra por uma porta que ninguém vigia. Sigam o dinheiro até o fundo.</p>
+      </article>
+      <article class="card reveal" style="--cor:#8f3a1e">
+        <span class="sel"></span>
+        <div class="papel">Zelotes</div>
+        <h3>Os que não se curvam</h3>
+        <p>Nenhum senhor além de D'us. Mas um incêndio vai queimar o pão da cidade e entregar o povo à fome. Vocês têm até o anoitecer para impedir os seus.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== O QUE E ===== -->
+<section class="secao oque">
+  <div class="wrap">
+    <p class="kicker reveal">Como funciona</p>
+    <h2 class="tit reveal">Uma cidade real, um jogo de verdade</h2>
+    <ul class="linhas reveal">
+      <li><span class="g">&#10022;</span><span>Pelas ruas reais da Cidade Velha de Jerusalém, no seu celular, sem instalar nada.</span></li>
+      <li><span class="g">&#10022;</span><span>Pistas, enigmas e história de verdade, tirada do Talmud, das fontes e da criatividade dos madrichim.</span></li>
+      <li><span class="g">&#10022;</span><span>Em grupos, cada um guiado por um madrich. De 20 a 50 pessoas.</span></li>
+      <li><span class="g">&#10022;</span><span>Um mapa antigo, um caminho que só as pedras conhecem, e um tesouro que só a união abre.</span></li>
+      <li><span class="g">&#10022;</span><span>De graça. Você só precisa vir.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== MAPA VITRINE ===== -->
+<section class="secao vitrine">
+  <div class="wrap reveal">
+    <p class="kicker">O que espera vocês</p>
+    <figure class="moldura">
+      <img src="assets/mapa-teaser.jpg" alt="Mapa ilustrado de Jerusalém antiga" loading="lazy">
+    </figure>
+    <figcaption>O mapa que vocês vão desvendar. As muralhas não mentem.</figcaption>
+  </div>
+</section>
+
+<!-- ===== INSCRICAO ===== -->
+<section class="secao inscr" id="inscricao">
+  <div class="wrap">
+    <p class="kicker reveal">Batam às portas</p>
+    <h2 class="tit reveal">Guardem seu lugar</h2>
+    <div class="painel reveal" id="painel">
+      <form class="form-real" id="form" autocomplete="on" novalidate>
+        <label class="rot" for="nome">Seu nome</label>
+        <input id="nome" name="nome" type="text" autocomplete="name" required maxlength="120" placeholder="Como te chamam">
+
+        <label class="rot" for="whats">Seu WhatsApp</label>
+        <input id="whats" name="whats" type="tel" inputmode="tel" autocomplete="tel" required maxlength="40" placeholder="Com DDI e DDD">
+
+        <label class="rot" for="quantos">Quantas pessoas no total, contando você?</label>
+        <input id="quantos" name="quantos" type="number" inputmode="numeric" min="1" max="60" value="1">
+
+        <button class="cta" type="submit" id="btn">Quero jogar</button>
+        <p class="erro" id="erro" role="alert"></p>
+        <p class="ajuda">A sua seita e o dia chegam pelo WhatsApp, mais perto da hora.</p>
+        <p class="priv">Seus dados servem só para organizar a peula. Não compartilhamos com ninguém. Quer sair depois? É só pedir.</p>
+      </form>
+      <div class="sucesso" id="sucesso">
+        <h3>Seu nome está nas portas</h3>
+        <p>Fiquem de olho no WhatsApp. A seita de vocês e o dia chegam por lá. Andem.</p>
+        <a class="share" id="share" href="#" target="_blank" rel="noopener">Chamar seu grupo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="cinzel">AS PORTAS DE JERUSALÉM</p>
+  <p style="margin-top:8px">Uma experiência imersiva Am Echad · Jerusalém</p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  // Chave PUBLICA (anon) do Supabase: feita para ficar no navegador. A protecao
+  // esta no banco (RLS + RPC), nao no segredo desta chave.
+  var SB_URL = "https://nwdacjcbafaizbfjoxzn.supabase.co";
+  var SB_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53ZGFjamNiYWZhaXpiZmpveHpuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyNDUyNTAsImV4cCI6MjA5NjgyMTI1MH0.Ko6R_GUWWrzF72lnQchVcN3kDK04dA0Enj5bACnB61k";
+
+  // Origem (marketing): ?de=insta, ?de=whats, etc.
+  var origem = new URLSearchParams(location.search).get('de') || 'direto';
+
+  // Revela secoes ao rolar
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(ents){
+      ents.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('vis'); });
+  }
+
+  var form = document.getElementById('form');
+  var btn = document.getElementById('btn');
+  var erro = document.getElementById('erro');
+  var painel = document.getElementById('painel');
+  var sucesso = document.getElementById('sucesso');
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    erro.textContent = '';
+    var nome = document.getElementById('nome').value.trim();
+    var whats = document.getElementById('whats').value.trim();
+    var quantos = parseInt(document.getElementById('quantos').value, 10);
+    if(!nome){ erro.textContent = 'Diga seu nome para bater às portas.'; return; }
+    if(whats.replace(/[^0-9]/g,'').length < 8){ erro.textContent = 'Precisamos de um WhatsApp válido para te avisar do dia.'; return; }
+    if(!quantos || quantos < 1){ quantos = 1; }
+
+    btn.disabled = true;
+    var textoOrig = btn.textContent;
+    btn.textContent = 'Selando...';
+
+    fetch(SB_URL + '/rest/v1/rpc/peula_inscrever', {
+      method:'POST',
+      headers:{ 'apikey':SB_ANON, 'Authorization':'Bearer '+SB_ANON, 'Content-Type':'application/json' },
+      body: JSON.stringify({ p_nome:nome, p_whatsapp:whats, p_quantos:quantos, p_origem:origem })
+    }).then(function(r){
+      if(!r.ok){ throw new Error('status '+r.status); }
+      return r.json();
+    }).then(function(){
+      var url = 'https://allansmarcos-ctrl.github.io/portas/';
+      var msg = 'Vem comigo nas Portas de Jerusalém, uma caça ao tesouro pela Cidade Velha: ' + url;
+      document.getElementById('share').href = 'https://wa.me/?text=' + encodeURIComponent(msg);
+      painel.classList.add('enviado');
+      sucesso.classList.add('on');
+      sucesso.scrollIntoView({block:'center'});
+    }).catch(function(){
+      btn.disabled = false;
+      btn.textContent = textoOrig;
+      erro.textContent = 'As portas travaram por um instante. Confira a conexão e tente de novo.';
+    });
+  });
+})();
+</script>
+</body>
+</html>
