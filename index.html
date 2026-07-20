@@ -77,7 +77,8 @@ h2.tit{font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:clamp(26px,7
 .card h3{font-family:'Cinzel',Georgia,serif;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:#4a3418;margin-bottom:4px;}
 .card .papel{font-family:'Cinzel',Georgia,serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cor,var(--sepia));margin-bottom:12px;}
 .card p{font-size:16.5px;line-height:1.6;}
-.card .sel{position:absolute;top:18px;right:20px;width:12px;height:12px;border-radius:50%;background:var(--cor,var(--dourado));box-shadow:0 0 10px 1px var(--cor,var(--dourado));}
+.card__brasao{position:absolute;top:16px;right:16px;width:48px;height:auto;filter:drop-shadow(0 4px 8px rgba(0,0,0,.32));}
+.card .papel,.card h3{padding-right:58px;}
 
 .oque{background:var(--noite-2);}
 .linhas{list-style:none;max-width:560px;margin:0 auto;}
@@ -155,19 +156,19 @@ footer .cinzel{color:#b89a5f;font-size:14px;letter-spacing:.18em;}
     <h2 class="tit reveal">Três correntes, uma cidade</h2>
     <div class="cards">
       <article class="card reveal" style="--cor:#b8860b">
-        <span class="sel"></span>
+        <svg class="card__brasao" viewBox="0 0 100 118" aria-hidden="true"><defs><linearGradient id="brF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9a52a"/><stop offset="1" stop-color="#9c6f0e"/></linearGradient></defs><path d="M8 8 H92 V60 Q92 98 50 114 Q8 98 8 60 Z" fill="url(#brF)" stroke="#f0d68a" stroke-width="4"/><path d="M8 8 H92 V60 Q92 98 50 114 Q8 98 8 60 Z" fill="none" stroke="#2a1a0a" stroke-width="1.3" opacity=".4"/><g transform="translate(50 58)" fill="#f7edd0" stroke="#3a2a12" stroke-width="1.4"><rect x="-21" y="-26" width="7" height="52" rx="3"/><rect x="14" y="-26" width="7" height="52" rx="3"/><circle cx="-17.5" cy="-27" r="4.5"/><circle cx="-17.5" cy="27" r="4.5"/><circle cx="17.5" cy="-27" r="4.5"/><circle cx="17.5" cy="27" r="4.5"/><rect x="-14" y="-22" width="28" height="44" fill="#f7edd0"/><line x1="-8" y1="-10" x2="8" y2="-10" stroke-width="1.6"/><line x1="-8" y1="0" x2="8" y2="0" stroke-width="1.6"/><line x1="-8" y1="10" x2="8" y2="10" stroke-width="1.6"/></g></svg>
         <div class="papel">Fariseus</div>
         <h3>Os que esperam</h3>
         <p>Os mestres da Torá, a corrente do povo e das ruas. Toda Jerusalém fala de um mestre de Natzrat. Uns o seguem, outros o temem. Descubram quem ele é, antes que a cidade decida por vocês.</p>
       </article>
       <article class="card reveal" style="--cor:#6d2857">
-        <span class="sel"></span>
+        <svg class="card__brasao" viewBox="0 0 100 118" aria-hidden="true"><defs><linearGradient id="brS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a3568"/><stop offset="1" stop-color="#571f42"/></linearGradient></defs><path d="M8 8 H92 V60 Q92 98 50 114 Q8 98 8 60 Z" fill="url(#brS)" stroke="#f0d68a" stroke-width="4"/><path d="M8 8 H92 V60 Q92 98 50 114 Q8 98 8 60 Z" fill="none" stroke="#2a1a0a" stroke-width="1.3" opacity=".4"/><g transform="translate(50 56)" fill="#f7edd0" stroke="#3a2a12" stroke-width="1.4"><path d="M-20 -20 H20 L13 6 Q0 18 -13 6 Z"/><rect x="-4" y="6" width="8" height="18"/><rect x="-17" y="24" width="34" height="7" rx="2"/><path d="M0 -30 Q7 -25 2 -20 Q-4 -25 0 -30 Z" fill="#ffe08a" stroke="none"/></g></svg>
         <div class="papel">Saduceus</div>
         <h3>Os que guardam o altar</h3>
         <p>Os sacerdotes do Templo, a casa que segura o altar. Mas alguém comprou o Sumo Sacerdote, e o ouro entra por uma porta sem guarda. Sigam o dinheiro até o fundo.</p>
       </article>
       <article class="card reveal" style="--cor:#8f3a1e">
-        <span class="sel"></span>
+        <svg class="card__brasao" viewBox="0 0 100 118" aria-hidden="true"><defs><linearGradient id="brZ" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b04d28"/><stop offset="1" stop-color="#7a2f16"/></linearGradient></defs><path d="M8 8 H92 V60 Q92 98 50 114 Q8 98 8 60 Z" fill="url(#brZ)" stroke="#f0d68a" stroke-width="4"/><path d="M8 8 H92 V60 Q92 98 50 114 Q8 98 8 60 Z" fill="none" stroke="#2a1a0a" stroke-width="1.3" opacity=".4"/><g transform="translate(50 54)" fill="#f7edd0" stroke="#3a2a12" stroke-width="1.4"><path d="M-3 -30 Q12 -12 5 10 L-5 10 Q-9 -10 -3 -30 Z"/><rect x="-14" y="10" width="28" height="6" rx="2"/><rect x="-4" y="16" width="8" height="15" rx="2"/><circle cx="0" cy="33" r="4.5"/></g></svg>
         <div class="papel">Zelotes</div>
         <h3>Os que não se curvam</h3>
         <p>Os que pegaram em armas contra Roma, no grito de que não há senhor além de D'us. Agora um incêndio vai queimar o pão da cidade e entregar o povo à fome. Vocês têm até o anoitecer para deter os seus.</p>
