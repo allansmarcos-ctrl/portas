@@ -154,6 +154,23 @@ h2.tit{font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:clamp(26px,7
 .moldura img{border-radius:5px;display:block;width:100%;}
 .rosa{position:absolute;right:-14px;bottom:-16px;width:78px;height:78px;z-index:3;transform:rotate(-9deg);opacity:.95;filter:drop-shadow(0 4px 10px rgba(0,0,0,.5));}
 .vitrine figcaption{margin-top:18px;font-style:italic;color:#d8c7a0;font-size:15px;}
+.mapa-svg-wrap{position:relative;line-height:0;border-radius:5px;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.rotas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.rota{fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.rota.casing{stroke:#241a0f;stroke-width:22;opacity:.42;}
+.rota.cor{stroke-width:12;}
+.carimbo{stroke:#241a0f;stroke-width:4;opacity:0;}
+.tesouro{opacity:0;}
+.t-ping{transform-box:fill-box;transform-origin:center;opacity:0;}
+@keyframes pingar{0%{transform:scale(.5);opacity:.95}100%{transform:scale(2.7);opacity:0}}
+.t-ping.pingar{animation:pingar 1s ease-out;}
+@keyframes brilhoTesouro{0%,100%{opacity:.28}50%{opacity:.64}}
+.tesouro.aceso .t-glow{animation:brilhoTesouro 2.6s ease-in-out infinite;}
+.vitrine .hint{display:inline-block;margin-left:4px;opacity:.72;font-size:13px;}
+@media (prefers-reduced-motion:reduce){
+  .tesouro.aceso .t-glow{animation:none;opacity:.52;}
+  .t-ping.pingar{animation:none;}
+}
 
 /* inscricao sobre a foto do beco, como um registro no portao */
 .inscr{position:relative;background:var(--noite);}
@@ -289,7 +306,41 @@ footer .cinzel{color:#c8a86a;font-size:14px;letter-spacing:.22em;}
   <div class="wrap reveal">
     <p class="kicker">O que espera vocês</p>
     <figure class="moldura">
+      <div class="mapa-svg-wrap">
       <img src="assets/mapa-teaser.jpg" alt="Mapa ilustrado de Jerusalém antiga" loading="lazy">
+      <svg class="rotas" viewBox="0 0 1120 1187" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs><radialGradient id="glowOuro" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="#ffdf91" stop-opacity=".95"/>
+          <stop offset="55%" stop-color="#e0b03a" stop-opacity=".5"/>
+          <stop offset="100%" stop-color="#e0b03a" stop-opacity="0"/>
+        </radialGradient></defs>
+        <g class="rseita" data-onda="0">
+          <path class="rota casing" d="M416.6 180.4 C431.2 198.4 476.4 256.2 504.0 288.4 C531.6 320.7 552.5 350.8 582.4 373.9 C612.3 397.1 649.0 409.7 683.2 427.3 C717.4 444.9 770.0 470.8 787.4 479.5"/>
+          <path class="rota cor" stroke="#c99a2e" d="M416.6 180.4 C431.2 198.4 476.4 256.2 504.0 288.4 C531.6 320.7 552.5 350.8 582.4 373.9 C612.3 397.1 649.0 409.7 683.2 427.3 C717.4 444.9 770.0 470.8 787.4 479.5"/>
+          <circle class="carimbo" cx="416.6" cy="180.4" r="15" fill="#c99a2e"/>
+          <circle class="carimbo" cx="582.4" cy="373.9" r="11" fill="#c99a2e"/>
+          <circle class="carimbo" cx="683.2" cy="427.3" r="11" fill="#c99a2e"/>
+        </g>
+        <g class="rseita" data-onda="1">
+          <path class="rota casing" d="M300.2 838.0 C314.5 826.0 350.6 789.6 386.4 765.6 C422.2 741.7 472.3 727.4 515.2 694.4 C558.1 661.4 598.6 603.2 644.0 567.4 C689.4 531.6 763.5 494.2 787.4 479.5"/>
+          <path class="rota cor" stroke="#7c3a68" d="M300.2 838.0 C314.5 826.0 350.6 789.6 386.4 765.6 C422.2 741.7 472.3 727.4 515.2 694.4 C558.1 661.4 598.6 603.2 644.0 567.4 C689.4 531.6 763.5 494.2 787.4 479.5"/>
+          <circle class="carimbo" cx="300.2" cy="838.0" r="15" fill="#7c3a68"/>
+          <circle class="carimbo" cx="515.2" cy="694.4" r="11" fill="#7c3a68"/>
+          <circle class="carimbo" cx="644.0" cy="567.4" r="11" fill="#7c3a68"/>
+        </g>
+        <g class="rseita" data-onda="2">
+          <path class="rota casing" d="M725.8 987.6 C716.8 964.4 675.0 894.6 672.0 848.7 C669.0 802.8 693.3 757.3 707.8 712.2 C722.4 667.1 746.1 616.8 759.4 578.1 C772.6 539.3 782.7 496.0 787.4 479.5"/>
+          <path class="rota cor" stroke="#b04d28" d="M725.8 987.6 C716.8 964.4 675.0 894.6 672.0 848.7 C669.0 802.8 693.3 757.3 707.8 712.2 C722.4 667.1 746.1 616.8 759.4 578.1 C772.6 539.3 782.7 496.0 787.4 479.5"/>
+          <circle class="carimbo" cx="725.8" cy="987.6" r="15" fill="#b04d28"/>
+          <circle class="carimbo" cx="707.8" cy="712.2" r="11" fill="#b04d28"/>
+          <circle class="carimbo" cx="759.4" cy="578.1" r="11" fill="#b04d28"/>
+        </g>
+        <g class="tesouro" transform="translate(787.4 479.5)">
+          <circle class="t-glow" r="46" fill="url(#glowOuro)"/>
+          <circle class="t-ping" cx="0" cy="0" r="24" fill="none" stroke="#ffe6a0" stroke-width="3.5"/>
+        </g>
+      </svg>
+      </div>
       <svg class="rosa" viewBox="0 0 100 100" aria-hidden="true">
         <g fill="none" stroke="#d9ac4e" stroke-width="1.6" opacity=".9">
           <circle cx="50" cy="50" r="30" opacity=".55"/>
@@ -304,7 +355,7 @@ footer .cinzel{color:#c8a86a;font-size:14px;letter-spacing:.22em;}
         <circle cx="50" cy="50" r="3.4" fill="#f0d68a" stroke="#3a2a12"/>
       </svg>
     </figure>
-    <figcaption>O mapa que vocês vão desvendar. As muralhas não mentem.</figcaption>
+    <figcaption>O mapa que vocês vão desvendar. As muralhas não mentem. <span class="hint">Toque para refazer o caminho.</span></figcaption>
   </div>
 </section>
 
