@@ -160,17 +160,7 @@ h2.tit{font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:clamp(26px,7
 .rota.casing{stroke:#241a0f;stroke-width:22;opacity:.42;}
 .rota.cor{stroke-width:12;}
 .carimbo{stroke:#241a0f;stroke-width:4;opacity:0;}
-.tesouro{opacity:0;}
-.t-ping{transform-box:fill-box;transform-origin:center;opacity:0;}
-@keyframes pingar{0%{transform:scale(.5);opacity:.95}100%{transform:scale(2.7);opacity:0}}
-.t-ping.pingar{animation:pingar 1s ease-out;}
-@keyframes brilhoTesouro{0%,100%{opacity:.28}50%{opacity:.64}}
-.tesouro.aceso .t-glow{animation:brilhoTesouro 2.6s ease-in-out infinite;}
 .vitrine .hint{display:inline-block;margin-left:4px;opacity:.72;font-size:13px;}
-@media (prefers-reduced-motion:reduce){
-  .tesouro.aceso .t-glow{animation:none;opacity:.52;}
-  .t-ping.pingar{animation:none;}
-}
 
 /* inscricao sobre a foto do beco, como um registro no portao */
 .inscr{position:relative;background:var(--noite);}
@@ -295,6 +285,7 @@ footer .cinzel{color:#c8a86a;font-size:14px;letter-spacing:.22em;}
       <li><span class="g">&#10022;</span><span>Pelas ruas reais da Cidade Velha de Jerusalém, no seu celular, sem instalar nada.</span></li>
       <li><span class="g">&#10022;</span><span>Pistas, enigmas e história de verdade, tirada do Talmud e das fontes.</span></li>
       <li><span class="g">&#10022;</span><span>Em grupos, cada um com o seu guia. De 20 a 50 pessoas.</span></li>
+      <li><span class="g">&#10022;</span><span>Pensado para a segurança do grupo, o caminho fica nos bairros Cristão, Armênio e Judeu da Cidade Velha, sem passar pelo Muçulmano.</span></li>
       <li><span class="g">&#10022;</span><span>Um mapa antigo, um caminho que só as pedras conhecem, e um tesouro que só a união abre.</span></li>
       <li><span class="g">&#10022;</span><span>De graça. Você só precisa vir.</span></li>
     </ul>
@@ -309,35 +300,38 @@ footer .cinzel{color:#c8a86a;font-size:14px;letter-spacing:.22em;}
       <div class="mapa-svg-wrap">
       <img src="assets/mapa-teaser.jpg" alt="Mapa ilustrado de Jerusalém antiga" loading="lazy">
       <svg class="rotas" viewBox="0 0 1120 1187" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        <defs><radialGradient id="glowOuro" cx="50%" cy="50%" r="50%">
-          <stop offset="0" stop-color="#ffdf91" stop-opacity=".95"/>
-          <stop offset="55%" stop-color="#e0b03a" stop-opacity=".5"/>
-          <stop offset="100%" stop-color="#e0b03a" stop-opacity="0"/>
-        </radialGradient></defs>
         <g class="rseita" data-onda="0">
-          <path class="rota casing" d="M416.6 180.4 C431.2 198.4 476.4 256.2 504.0 288.4 C531.6 320.7 552.5 350.8 582.4 373.9 C612.3 397.1 649.0 409.7 683.2 427.3 C717.4 444.9 770.0 470.8 787.4 479.5"/>
-          <path class="rota cor" stroke="#c99a2e" d="M416.6 180.4 C431.2 198.4 476.4 256.2 504.0 288.4 C531.6 320.7 552.5 350.8 582.4 373.9 C612.3 397.1 649.0 409.7 683.2 427.3 C717.4 444.9 770.0 470.8 787.4 479.5"/>
-          <circle class="carimbo" cx="416.6" cy="180.4" r="15" fill="#c99a2e"/>
-          <circle class="carimbo" cx="582.4" cy="373.9" r="11" fill="#c99a2e"/>
-          <circle class="carimbo" cx="683.2" cy="427.3" r="11" fill="#c99a2e"/>
+          <path class="rota casing" d="M416.6 180.4 C420.2 183.8 431.3 193.8 438.0 200.8 C444.8 207.9 451.6 215.0 457.2 222.9 C462.8 230.9 476.5 232.8 471.6 248.6 C466.8 264.3 441.6 295.1 428.2 317.3 C414.7 339.4 392.1 368.4 390.9 381.4 C389.7 394.4 410.6 391.0 421.0 395.4 C431.4 399.8 439.5 405.9 453.0 407.9 C466.6 409.9 482.2 410.4 502.5 407.4 C522.9 404.4 559.6 389.1 575.0 389.7 C590.5 390.3 591.7 401.4 595.3 410.9 C598.8 420.4 593.8 436.4 596.3 446.7 C598.8 456.9 608.0 468.1 610.4 472.4"/>
+          <path class="rota cor" stroke="#c99a2e" d="M416.6 180.4 C420.2 183.8 431.3 193.8 438.0 200.8 C444.8 207.9 451.6 215.0 457.2 222.9 C462.8 230.9 476.5 232.8 471.6 248.6 C466.8 264.3 441.6 295.1 428.2 317.3 C414.7 339.4 392.1 368.4 390.9 381.4 C389.7 394.4 410.6 391.0 421.0 395.4 C431.4 399.8 439.5 405.9 453.0 407.9 C466.6 409.9 482.2 410.4 502.5 407.4 C522.9 404.4 559.6 389.1 575.0 389.7 C590.5 390.3 591.7 401.4 595.3 410.9 C598.8 420.4 593.8 436.4 596.3 446.7 C598.8 456.9 608.0 468.1 610.4 472.4"/>
+          <circle class="carimbo" data-frac="0.0" cx="416.6" cy="180.4" r="15" fill="#c99a2e"/>
+          <circle class="carimbo" data-frac="0.167" cx="457.2" cy="222.9" r="11" fill="#c99a2e"/>
+          <circle class="carimbo" data-frac="0.333" cx="428.2" cy="317.3" r="11" fill="#c99a2e"/>
+          <circle class="carimbo" data-frac="0.5" cx="421.0" cy="395.4" r="11" fill="#c99a2e"/>
+          <circle class="carimbo" data-frac="0.667" cx="502.5" cy="407.4" r="11" fill="#c99a2e"/>
+          <circle class="carimbo" data-frac="0.833" cx="595.3" cy="410.9" r="11" fill="#c99a2e"/>
+          <circle class="carimbo" data-frac="1.0" cx="610.4" cy="472.4" r="11" fill="#c99a2e"/>
         </g>
         <g class="rseita" data-onda="1">
-          <path class="rota casing" d="M300.2 838.0 C314.5 826.0 350.6 789.6 386.4 765.6 C422.2 741.7 472.3 727.4 515.2 694.4 C558.1 661.4 598.6 603.2 644.0 567.4 C689.4 531.6 763.5 494.2 787.4 479.5"/>
-          <path class="rota cor" stroke="#7c3a68" d="M300.2 838.0 C314.5 826.0 350.6 789.6 386.4 765.6 C422.2 741.7 472.3 727.4 515.2 694.4 C558.1 661.4 598.6 603.2 644.0 567.4 C689.4 531.6 763.5 494.2 787.4 479.5"/>
-          <circle class="carimbo" cx="300.2" cy="838.0" r="15" fill="#7c3a68"/>
-          <circle class="carimbo" cx="515.2" cy="694.4" r="11" fill="#7c3a68"/>
-          <circle class="carimbo" cx="644.0" cy="567.4" r="11" fill="#7c3a68"/>
+          <path class="rota casing" d="M300.2 838.0 C297.7 831.4 289.2 810.8 285.5 798.3 C281.8 785.7 270.1 768.4 277.8 762.8 C285.4 757.1 315.3 764.8 331.4 764.2 C347.5 763.6 364.0 763.3 374.3 759.2 C384.6 755.1 385.7 745.5 393.3 739.7 C400.9 734.0 414.6 732.0 419.9 724.9 C425.1 717.8 420.2 704.4 424.8 696.9 C429.5 689.4 440.0 685.6 447.8 679.9 C455.5 674.3 473.2 674.6 471.2 663.1 C469.1 651.5 444.0 626.2 435.5 610.7 C426.9 595.3 417.2 579.2 419.7 570.4 C422.1 561.5 445.1 560.0 450.2 557.9"/>
+          <path class="rota cor" stroke="#7c3a68" d="M300.2 838.0 C297.7 831.4 289.2 810.8 285.5 798.3 C281.8 785.7 270.1 768.4 277.8 762.8 C285.4 757.1 315.3 764.8 331.4 764.2 C347.5 763.6 364.0 763.3 374.3 759.2 C384.6 755.1 385.7 745.5 393.3 739.7 C400.9 734.0 414.6 732.0 419.9 724.9 C425.1 717.8 420.2 704.4 424.8 696.9 C429.5 689.4 440.0 685.6 447.8 679.9 C455.5 674.3 473.2 674.6 471.2 663.1 C469.1 651.5 444.0 626.2 435.5 610.7 C426.9 595.3 417.2 579.2 419.7 570.4 C422.1 561.5 445.1 560.0 450.2 557.9"/>
+          <circle class="carimbo" data-frac="0.0" cx="300.2" cy="838.0" r="15" fill="#7c3a68"/>
+          <circle class="carimbo" data-frac="0.167" cx="277.8" cy="762.8" r="11" fill="#7c3a68"/>
+          <circle class="carimbo" data-frac="0.333" cx="374.3" cy="759.2" r="11" fill="#7c3a68"/>
+          <circle class="carimbo" data-frac="0.5" cx="419.9" cy="724.9" r="11" fill="#7c3a68"/>
+          <circle class="carimbo" data-frac="0.667" cx="447.8" cy="679.9" r="11" fill="#7c3a68"/>
+          <circle class="carimbo" data-frac="0.833" cx="435.5" cy="610.7" r="11" fill="#7c3a68"/>
+          <circle class="carimbo" data-frac="1.0" cx="450.2" cy="557.9" r="11" fill="#7c3a68"/>
         </g>
         <g class="rseita" data-onda="2">
-          <path class="rota casing" d="M725.8 987.6 C716.8 964.4 675.0 894.6 672.0 848.7 C669.0 802.8 693.3 757.3 707.8 712.2 C722.4 667.1 746.1 616.8 759.4 578.1 C772.6 539.3 782.7 496.0 787.4 479.5"/>
-          <path class="rota cor" stroke="#b04d28" d="M725.8 987.6 C716.8 964.4 675.0 894.6 672.0 848.7 C669.0 802.8 693.3 757.3 707.8 712.2 C722.4 667.1 746.1 616.8 759.4 578.1 C772.6 539.3 782.7 496.0 787.4 479.5"/>
-          <circle class="carimbo" cx="725.8" cy="987.6" r="15" fill="#b04d28"/>
-          <circle class="carimbo" cx="707.8" cy="712.2" r="11" fill="#b04d28"/>
-          <circle class="carimbo" cx="759.4" cy="578.1" r="11" fill="#b04d28"/>
-        </g>
-        <g class="tesouro" transform="translate(787.4 479.5)">
-          <circle class="t-glow" r="46" fill="url(#glowOuro)"/>
-          <circle class="t-ping" cx="0" cy="0" r="24" fill="none" stroke="#ffe6a0" stroke-width="3.5"/>
+          <path class="rota casing" d="M725.8 987.6 C723.9 982.6 723.6 966.9 714.8 957.8 C706.0 948.7 677.0 943.1 672.9 933.2 C668.8 923.4 686.3 909.9 690.4 898.7 C694.5 887.4 710.9 874.1 697.5 865.8 C684.2 857.5 624.3 857.1 610.1 848.9 C595.8 840.8 606.8 828.4 612.2 816.9 C617.6 805.4 629.2 792.9 642.5 780.1 C655.9 767.3 671.2 754.1 692.4 740.0 C713.6 725.8 764.1 706.7 769.7 695.2 C775.3 683.7 740.8 679.0 726.0 671.0 C711.1 663.0 689.9 656.0 680.5 647.0 C671.1 638.1 671.6 622.2 669.8 617.2"/>
+          <path class="rota cor" stroke="#b04d28" d="M725.8 987.6 C723.9 982.6 723.6 966.9 714.8 957.8 C706.0 948.7 677.0 943.1 672.9 933.2 C668.8 923.4 686.3 909.9 690.4 898.7 C694.5 887.4 710.9 874.1 697.5 865.8 C684.2 857.5 624.3 857.1 610.1 848.9 C595.8 840.8 606.8 828.4 612.2 816.9 C617.6 805.4 629.2 792.9 642.5 780.1 C655.9 767.3 671.2 754.1 692.4 740.0 C713.6 725.8 764.1 706.7 769.7 695.2 C775.3 683.7 740.8 679.0 726.0 671.0 C711.1 663.0 689.9 656.0 680.5 647.0 C671.1 638.1 671.6 622.2 669.8 617.2"/>
+          <circle class="carimbo" data-frac="0.0" cx="725.8" cy="987.6" r="15" fill="#b04d28"/>
+          <circle class="carimbo" data-frac="0.167" cx="672.9" cy="933.2" r="11" fill="#b04d28"/>
+          <circle class="carimbo" data-frac="0.333" cx="697.5" cy="865.8" r="11" fill="#b04d28"/>
+          <circle class="carimbo" data-frac="0.5" cx="612.2" cy="816.9" r="11" fill="#b04d28"/>
+          <circle class="carimbo" data-frac="0.667" cx="692.4" cy="740.0" r="11" fill="#b04d28"/>
+          <circle class="carimbo" data-frac="0.833" cx="726.0" cy="671.0" r="11" fill="#b04d28"/>
+          <circle class="carimbo" data-frac="1.0" cx="669.8" cy="617.2" r="11" fill="#b04d28"/>
         </g>
       </svg>
       </div>

@@ -75,15 +75,14 @@
   });
 })();
 
-// Mapa vivo: as tres rotas das seitas se desenham e convergem no Templo
+// Mapa vivo: as tres rotas das seitas serpenteiam pela cidade (nao vao ao Templo)
 (function () {
   var wrap = document.querySelector('.mapa-svg-wrap');
   if (!wrap) { return; }
   var svg = wrap.querySelector('.rotas');
   var grupos = [].slice.call(svg.querySelectorAll('.rseita'));
-  var tesouro = svg.querySelector('.tesouro');
-  var ping = svg.querySelector('.t-ping');
   var reduzir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DUR = 2.8, STAGGER = 0.7, timers = [];
 
   var rotas = [];
   grupos.forEach(function (g) {
@@ -96,44 +95,35 @@
   });
 
   function carimbos(g) { return [].slice.call(g.querySelectorAll('.carimbo')); }
+  function limparTimers() { for (var i = 0; i < timers.length; i++) { clearTimeout(timers[i]); } timers = []; }
 
   function esconder() {
+    limparTimers();
     rotas.forEach(function (p) { p.style.transition = 'none'; p.style.strokeDashoffset = p.__L; });
     grupos.forEach(function (g) { carimbos(g).forEach(function (c) { c.style.transition = 'none'; c.style.opacity = 0; }); });
-    tesouro.classList.remove('aceso');
-    tesouro.style.transition = 'none';
-    tesouro.style.opacity = 0;
-    if (ping) { ping.classList.remove('pingar'); }
     void svg.getBoundingClientRect();
   }
 
   function final() {
-    rotas.forEach(function (p) { p.style.strokeDashoffset = 0; });
-    grupos.forEach(function (g) { carimbos(g).forEach(function (c) { c.style.opacity = 1; }); });
-    tesouro.style.opacity = 1;
-    tesouro.classList.add('aceso');
+    limparTimers();
+    rotas.forEach(function (p) { p.style.transition = 'none'; p.style.strokeDashoffset = 0; });
+    grupos.forEach(function (g) { carimbos(g).forEach(function (c) { c.style.transition = 'none'; c.style.opacity = 1; }); });
   }
 
   function revelar() {
     esconder();
     if (reduzir) { final(); return; }
     grupos.forEach(function (g) {
-      var atraso = (parseInt(g.getAttribute('data-onda'), 10) || 0) * 0.5;
+      var atraso = (parseInt(g.getAttribute('data-onda'), 10) || 0) * STAGGER;
       [].slice.call(g.querySelectorAll('.rota')).forEach(function (p) {
-        p.style.transition = 'stroke-dashoffset 1.5s cubic-bezier(.45,0,.25,1) ' + atraso + 's';
+        p.style.transition = 'stroke-dashoffset ' + DUR + 's cubic-bezier(.45,0,.25,1) ' + atraso + 's';
         p.style.strokeDashoffset = 0;
       });
-      carimbos(g).forEach(function (c, k) {
-        setTimeout(function () { c.style.transition = 'opacity .45s ease'; c.style.opacity = 1; }, (atraso + 0.5) * 1000 + k * 300);
+      carimbos(g).forEach(function (c) {
+        var frac = parseFloat(c.getAttribute('data-frac')) || 0;
+        timers.push(setTimeout(function () { c.style.transition = 'opacity .5s ease'; c.style.opacity = 1; }, (atraso + frac * DUR) * 1000));
       });
     });
-    var fim = (grupos.length - 1) * 0.5 + 1.7;
-    setTimeout(function () {
-      tesouro.style.transition = 'opacity .5s ease';
-      tesouro.style.opacity = 1;
-      tesouro.classList.add('aceso');
-      if (ping) { ping.classList.remove('pingar'); void svg.getBoundingClientRect(); ping.classList.add('pingar'); }
-    }, fim * 1000);
   }
 
   if (reduzir) { final(); } else { esconder(); }
